@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %} Bosh sahifa {% endblock title %}
+{% block content %}
+
+    {% if user.is_authenticated %}
+        {{ user.username }}
+        <p><a href="{% url 'logout' %}">Chiqish</a>
+        <a href="{% url 'article_list' %}">Barcha postlar</a>
+        </p>
+
+    {% else %}
+        <p>Saytga kirmagansiz</p>
+        <a href="{% url 'login' %}">Kirish</a> |
+        <a href="{% url 'signup' %}">Ro'yxatdan o'tish</a>
+        <a href="{% url 'article_list' %}">Barcha postlar</a>
+    {% endif %}
+{% endblock content %}
